@@ -1,9 +1,12 @@
 package org.acme.jokes.dto;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.List;
 
-public record JokeDTO(int id, String randomJoke) {
+public record JokeDTO(@Schema(description = "Unique identifier of the joke", example = "123") int id,
+                      @Schema(description = "The joke text", example = "Why do Java developers wear glasses? Because they can't C#.") String randomJoke) {
     public static final List<String> FALLBACK_JOKES = List.of(
             "A man walks into a coffee: splash.",
             "Never date a baker. They're too kneady.",

@@ -1,5 +1,9 @@
 package org.acme.jokes.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.acme.jokes.dto.JokeDTO;
 import org.acme.jokes.service.JokeRestService;
 import org.acme.jokes.service.RandomService;
@@ -21,6 +25,10 @@ public class JokeController {
     }
 
     @GetMapping(value = "/safe", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Get a random joke", description = "Fetches a random, safe-for-work joke")
+    @ApiResponse(responseCode = "200", description = "Successful retrieval of joke",
+            content = { @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = JokeDTO.class)) })
     public Mono<JokeDTO> getJoke() {
         return jokeService.getShortestSafeJoke()
                 .switchIfEmpty(Mono.error(new RuntimeException("jokes not found")))

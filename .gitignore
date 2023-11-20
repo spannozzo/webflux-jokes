@@ -1,4 +1,5 @@
 target/
+curl/
 .gradle/*
 .mvn/*
 .idea/*
