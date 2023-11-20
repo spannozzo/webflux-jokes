@@ -14,7 +14,7 @@ public class RandomService {
     }
 
     public <T> T getRandom(List<T> elements) {
-        int randomIndex = random.nextInt(elements.size());
+        var randomIndex = random.nextInt(elements.size());
         return elements.get(randomIndex);
     }
 

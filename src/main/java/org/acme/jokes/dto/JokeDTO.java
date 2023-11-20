@@ -1,5 +1,6 @@
 package org.acme.jokes.dto;
 
+
 import java.util.List;
 
 public record JokeDTO(int id, String randomJoke) {

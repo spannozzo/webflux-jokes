@@ -2,7 +2,6 @@ package org.acme.jokes.controller;
 
 import org.acme.jokes.dto.JokeDTO;
 import org.acme.jokes.service.JokeRestService;
-import org.acme.jokes.service.JokeService;
 import org.acme.jokes.service.RandomService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +29,7 @@ public class JokeController {
     }
 
     private JokeDTO getRandomJoke() {
-        int randomId = randomService.getRandomInt(250);
+        var randomId = randomService.getRandomInt(250);
         String randomJoke = randomService.getRandom(JokeDTO.FALLBACK_JOKES);
 
         return new JokeDTO(randomId, randomJoke);

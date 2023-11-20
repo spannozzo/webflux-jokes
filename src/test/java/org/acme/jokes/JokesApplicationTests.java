@@ -111,7 +111,7 @@ class JokesApplicationTests {
     }
 
     @Test
-    void api_should_return_empty_when_none_is_safe_and_then_a_random_joke() {
+    void api_should_return_empty_when_none_are_safe_and_then_a_random_joke() {
         when(responseSpecMock.bodyToMono(JokeApiResponse.class)).thenAnswer(invocation -> {
             return Mono.just(new JokeApiResponse(unsafeJokes));
         });
